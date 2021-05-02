@@ -1,27 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from "../actions/shared";
 import Nav from './Nav';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import LoadingBar from 'react-redux-loading-bar';
+import Leaderboard from './Leaderboard';
+import Login from './Login';
 
-function App(props) {
+class App extends Component {
 
-  useEffect(() => {
-    props.dispatch(handleInitialData())
-  })
-
-  return (
-    <Router>
-      <div className="App">
-        <Nav />
-        
-      </div>
-    </Router>
-  );
+  componentDidMount(){
+    this.props.dispatch(handleInitialData())
+  }
+  render(){
+    return (
+      <Router>
+        <LoadingBar />
+        <div>
+          {this.props.loading
+          ? <Login />
+          : <Fragment> 
+              <Nav />
+              <Route path='/leaderboard' component={Leaderboard} />
+            </Fragment>}
+        </div>
+      </Router>
+    )
+  }
 }
 
-// function mapStateToProps({authedUser, users}) {
-  
-// }
+function mapStateToProps({authedUser}) {
+  return {
+    loading : authedUser === null
+  }
+}
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);
