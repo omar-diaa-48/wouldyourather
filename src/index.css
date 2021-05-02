@@ -26,6 +26,16 @@ code {
   margin: 10px;
 }
 
+.logo{
+  height: 200px;
+  animation: logorotates 3s infinite;
+}
+
+@keyframes logorotates {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
 li {
   list-style: none;
 }
