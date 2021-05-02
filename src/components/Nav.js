@@ -17,7 +17,7 @@ const Nav = (props) => {
         dispatch(setAuthedUser(id))        
     }
     return(
-        <nav className="navbar navbar-expand-lg bg-light mx-3 mb-3">
+        <nav className="navbar navbar-expand-md bg-light mx-3 mb-3">
             <div className="container-fluid col-10">
                 <Link className='navbar-brand' to='/'>Would you rather?</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@ const Nav = (props) => {
             {props.authedUser 
             ?
             <div className='btn-group col-2'>
-                <button className='btn btn-link dropdown-toggle'
+                <button className='btn btn-light dropdown-toggle'
                         data-bs-toggle="dropdown" 
                         aria-expanded="false">
                     Hello, {props.user.name}
@@ -42,11 +42,11 @@ const Nav = (props) => {
                 <ul className="dropdown-menu">
                     {props.usersIds.map(id => 
                             <li key={id}>
-                                <button className="dropdown-item btn btn-link" 
+                                <button className="dropdown-item" 
                                         onClick={(e) => handleChangeUser(e, id)}>Switch to {props.users[id].name}</button>
                             </li>
                         )}
-                    <li><button className="btn btn-link dropdown-item" onClick={handleLogOut}>Log out</button></li>
+                    <li><button className="dropdown-item" onClick={handleLogOut}>Log out</button></li>
                 </ul>
                 <img className='avatar' 
                     alt={`Avatar of ${props.user.name}`}
