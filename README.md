@@ -15,10 +15,10 @@ the authed user is set to null, afterwards you can `navigate all through the app
 
 The project holds 6 folders:
 
-    *actions => that contains all the required actions and action creators
+* actions => that contains all the required actions and action creators
                 (questions,users,authedUser)
 
-    *components => that contains 12 components covering all the required functionality
+* components => that contains 12 components covering all the required functionality
                 App Component
                 Nav - all the navigation links and authed user view 
                 Home - user's home page that has all the answered and the unanswered questions of authed user
@@ -31,13 +31,13 @@ The project holds 6 folders:
                 UserProfile - shows all the users contributions so far
                 NewQuestion - a page to submit a new question
 
-    *middleware => has the logger and the thunk middlewars and exports the applyMiddleWare
+* middleware => has the logger and the thunk middlewars and exports the applyMiddleWare
 
-    *redeucers => has all the required reducers to process all the actions created
+* redeucers => has all the required reducers to process all the actions created
 
-    *utils => has the _DATA file 
+* utils => has the _DATA file 
 
-    *visual => has the logo that is found on the login page
+* visual => has the logo that is found on the login page
 ## Data
 
 There are two types of objects stored in our database:
