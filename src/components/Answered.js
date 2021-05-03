@@ -23,7 +23,7 @@ const Answered = (props) => {
                             <div className="progress-bar" 
                                     role="progressbar" 
                                     style={{width : `${op1Count*100/(op1Count+op2Count)}%`}}
-                                    >{`${op1Count}/${(op1Count+op2Count)}`}</div>
+                                    >{`${op1Count}/${(op1Count+op2Count)} -- ${op1Count*100/(op1Count+op2Count)}%`}</div>
                         </div>
                     </div>
                     <div className={`p-3 m-1 ${(user.answers[question.id] === "optionTwo") ? 'border border-success' : 'border'}`}>
@@ -32,7 +32,7 @@ const Answered = (props) => {
                             <div className="progress-bar" 
                                     role="progressbar" 
                                     style={{width : `${op2Count*100/(op1Count+op2Count)}%`}}
-                                    >{`${op2Count}/${(op1Count+op2Count)}`}</div>
+                                    >{`${op2Count}/${(op1Count+op2Count)} -- ${op2Count*100/(op1Count+op2Count)}%`}</div>
                         </div>
                     </div>
                 </div>

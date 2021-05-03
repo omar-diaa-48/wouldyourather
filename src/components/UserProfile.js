@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Page404 from './Page404';
 
 const UserProfile = (props) => {
     const {authedUser, user} = props
 
     if(user === null)
-        return <p3>User doesn't exist</p3>
+        return <Page404 notfound='User' />
 
     const {id, name, avatarURL, answers, questions} = user
     

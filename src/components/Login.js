@@ -10,7 +10,7 @@ const Login = (props) => {
         const {dispatch, history} = props
         if(e.target.selectedIndex !== 0){
             dispatch(setAuthedUser(e.target.value))
-            history.push('/')
+            history.push(props.location.pathname === '/login' ? '/' : props.location.pathname)
         }
     }
     return(
