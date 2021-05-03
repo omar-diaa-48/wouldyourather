@@ -19,7 +19,7 @@ const Answered = (props) => {
                     <h4>Results: </h4>
                     <div className={`p-3 m-1 ${(user.answers[question.id] === "optionOne") ? 'border border-success' : 'border'}`}>
                         <p>{question.optionOne.text}</p>
-                        <div class="progress">
+                        <div className="progress">
                             <div className="progress-bar" 
                                     role="progressbar" 
                                     style={{width : `${op1Count*100/(op1Count+op2Count)}%`}}
@@ -28,7 +28,7 @@ const Answered = (props) => {
                     </div>
                     <div className={`p-3 m-1 ${(user.answers[question.id] === "optionTwo") ? 'border border-success' : 'border'}`}>
                         <p>{question.optionTwo.text}</p>
-                        <div class="progress">
+                        <div className="progress">
                             <div className="progress-bar" 
                                     role="progressbar" 
                                     style={{width : `${op2Count*100/(op1Count+op2Count)}%`}}
