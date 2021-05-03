@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Questionsboard from './Questionsboard';
 // import { Link } from 'react-router-dom';
 
 const Home = (props) => {
@@ -28,8 +29,12 @@ const Home = (props) => {
                 </li>
             </ul>
             <div className='tab-content'>
-                <div className="tab-pane fade show active" id="unanswered" role="tabpanel" aria-labelledby="unanswered-tab">{props.answered.length}</div>
-                <div className="tab-pane fade" id="answered" role="tabpanel" aria-labelledby="answered-tab">{props.unanswered.length}</div>
+                <div className="tab-pane fade show active" id="unanswered" role="tabpanel" aria-labelledby="unanswered-tab">
+                    <Questionsboard questionsIds={props.unanswered} />
+                </div>
+                <div className="tab-pane fade" id="answered" role="tabpanel" aria-labelledby="answered-tab">
+                    <Questionsboard questionsIds={props.answered} />
+                </div>
             </div>
         </div>
     )
@@ -39,7 +44,11 @@ function mapStateToProps({authedUser, questions, users}) {
     const user = users[authedUser]
     const answered = []
     const unanswered = []
-    Object.keys(questions).forEach(q => Object.keys(user.answers).includes(q.id) ? answered.push(q.id) : unanswered.push(q.id) )
+    Object.keys(questions)
+        .forEach(id => {
+            Object.keys(user.answers)
+                    .includes(id) ? answered.push(id) : unanswered.push(id)
+                })
     return{
         user,
         answered,
