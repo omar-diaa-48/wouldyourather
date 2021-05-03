@@ -2,11 +2,12 @@ import React from 'react';
 import Question from './Question';
 
 const Questionsboard = (props) => {
+    const {questions} = props
     return(
         <ul>
-            {props.questionsIds.map(id => 
-                <li key={id}>
-                    <Question id={id}/>
+            {questions.map(q => 
+                <li key={q.id}>
+                    <Question id={q.id}/>
                 </li>
             )}
         </ul>

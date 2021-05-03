@@ -5,7 +5,7 @@ import { handleSaveQuestionAnswer } from "../actions/shared";
 
 const UnAnswered = (props) => {
     const [option, setOption] = useState('')
-    const {question, authedUser, history, dispatch} = props
+    const {user, question, authedUser, dispatch} = props
     const handleSubmit =(e) => {
         e.preventDefault();
         if(option === '')
@@ -15,11 +15,13 @@ const UnAnswered = (props) => {
             authedUser, 
             qid : question.id, 
             answer : option}))
-        history.push('/')
     }
     return(
         <div className="card mx-auto w-50">
             <div className="card-header">
+                <img className='avatar-big'
+                    alt={`Avatar of ${user.name}`}
+                    src={user.avatarURL}/>
                 {question.author} asks: 
             </div>
             <form className='text-center'>
@@ -36,9 +38,11 @@ const UnAnswered = (props) => {
     )
 }
 
-function mapStateToProps({authedUser}, {question}) {
+function mapStateToProps({authedUser, users}, {question}) {
+    const user = users[question.author]
     return {
         authedUser,
+        user,
         question
     }
 }

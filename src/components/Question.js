@@ -15,7 +15,7 @@ const Question = (props) => {
                     <div>{optionOne.text.substring(0,15)}...</div>
                 </div>
                 <div className="card-footer text-muted">
-                    <Link to={`/question/${id}`} className="btn btn-outline-success">View Poll</Link>
+                    <Link to={`/questions/${id}`} className="btn btn-outline-success">View Poll</Link>
                 </div>
             </form>
         </div>

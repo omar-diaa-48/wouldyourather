@@ -26,7 +26,7 @@ const Nav = (props) => {
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
                         <Link className="nav-link active" to='/'>Home</Link>
-                        <Link className="nav-link" to='/new'>New Question</Link>
+                        <Link className="nav-link" to='/add'>New Question</Link>
                         <Link className="nav-link" to='/leaderboard'>Leaderboard</Link>
                     </div> 
                 </div>

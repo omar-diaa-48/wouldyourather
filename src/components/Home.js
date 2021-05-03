@@ -30,10 +30,10 @@ const Home = (props) => {
             </ul>
             <div className='tab-content'>
                 <div className="tab-pane fade show active" id="unanswered" role="tabpanel" aria-labelledby="unanswered-tab">
-                    <Questionsboard questionsIds={props.unanswered} />
+                    <Questionsboard questions={props.unanswered} />
                 </div>
                 <div className="tab-pane fade" id="answered" role="tabpanel" aria-labelledby="answered-tab">
-                    <Questionsboard questionsIds={props.answered} />
+                    <Questionsboard questions={props.answered} />
                 </div>
             </div>
         </div>
@@ -47,8 +47,12 @@ function mapStateToProps({authedUser, questions, users}) {
     Object.keys(questions)
         .forEach(id => {
             Object.keys(user.answers)
-                    .includes(id) ? answered.push(id) : unanswered.push(id)
+                    .includes(id) ? answered.push(questions[id]) : unanswered.push(questions[id])
                 })
+    
+    answered.sort((a,b) => b.timestamp - a.timestamp)
+    unanswered.sort((a,b) => b.timestamp - a.timestamp)
+        
     return{
         user,
         answered,
