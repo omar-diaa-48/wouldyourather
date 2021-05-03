@@ -1,3 +1,35 @@
+# My Instructions 
+
+To use the project you need to install the packages using `npm install` then `npm start`
+
+At the beginning, you will be prompted to login using any of the users in the select list, because by default
+the authed user is set to null, afterwards you can `navigate all through the app, change user, and logout`
+
+The project holds 6 folders:
+
+    actions => that contains all the required actions and action creators
+                (questions,users,authedUser)
+
+    components => that contains 12 components covering all the required functionality
+                App Component
+                Nav - all the navigation links and authed user view 
+                Home - user's home page that has all the answered and the unanswered questions of authed user
+                Leaderboard - has all the users and their contributions so far
+                Login - whenever the authed user is not defined or the user choose to log out
+                Question - small over view of the question
+                QuestionCard - full over view of the question and decides whether to view an answered or un answered view
+                Answered - answered view of QuestionCard
+                UnAnswered - un answered view of QuestionCard
+                UserProfile - shows all the users contributions so far
+                NewQuestion - a page to submit a new question
+
+    middleware => has the logger and the thunk middlewars and exports the applyMiddleWare
+
+    redeucers => has all the required reducers to process all the actions created
+
+    utils => has the _DATA file 
+
+    visual => has the logo that is found on the login page
 # Would You Rather Project
 
 This is the starter code for the final assessment project for Udacity's React & Redux course.
